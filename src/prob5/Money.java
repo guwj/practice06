@@ -3,7 +3,7 @@ package prob5;
 public class Money {
 	private int amount;
 
-	public Money(int amount) {
+	public Money(int amount){
 		this.amount = amount;
 	}
 
@@ -16,33 +16,41 @@ public class Money {
 	}
 
 	public Money add(Money money) {
+//		money.setAmount(amount + money.getAmount());
+//		return money;
 		Money result = null;
-		if( money != null ) {
-			result = new Money( amount + money.amount );
+		if(money != null){
+			result = new Money(amount + money.getAmount());
 		}
 		return result;
 	}
 
 	public Money minus(Money money) {
+//		money.setAmount(amount - money.getAmount());
+//		return money;
 		Money result = null;
-		if( money != null ) {
-			result = new Money( amount - money.amount );
+		if(money != null){
+			result = new Money(amount - money.getAmount());
 		}
 		return result;
 	}
 
 	public Money multiply(Money money) {
+//		money.setAmount(amount * money.getAmount());
+//		return money;
 		Money result = null;
-		if( money != null ) {
-			result = new Money( amount * money.amount );
+		if(money != null){
+			result = new Money(amount * money.getAmount());
 		}
 		return result;
 	}
 
 	public Money devide(Money money) {
+//		money.setAmount(amount / money.getAmount());
+//		return money;
 		Money result = null;
-		if( money != null && money.amount != 0 ) {
-			result = new Money( amount / money.amount );
+		if(money != null){
+			result = new Money(amount / money.getAmount());
 		}
 		return result;
 	}

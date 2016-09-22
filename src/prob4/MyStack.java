@@ -1,49 +1,64 @@
 package prob4;
 
 public class MyStack implements Stack {
-	private int capacity;
-	private int top;
+
+	private int count;
 	private String[] buffer;
-	
-	public MyStack( int capacity ) {
-		resizeBuffer( capacity );
+
+	public MyStack(int arraylength) {
+		buffer = new String[arraylength];
 	}
-	
-	private void resizeBuffer( int capacity ) {
-		String[] tempBuffer = new String[ capacity ];
-		for( int i = 0; i < top; i++ ) {
-			tempBuffer[ i ] = buffer[ i ];
-		}
-		
-		buffer = tempBuffer;
-		this.capacity = capacity;
+
+	public int getCount() {
+		return count;
 	}
-	
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public String[] getBuffer() {
+		return buffer;
+	}
+
+	public void setBuffer(String[] buffer) {
+		this.buffer = buffer;
+	}
+
 	@Override
 	public void push(String item) {
-		if( top == capacity ){
-			resizeBuffer( capacity*2 );
+		if (count == buffer.length) {
+			resize(buffer.length);
 		}
-		
-		buffer[ top++ ] = item;
+		buffer[count] = item;
+		count++;
 	}
 
 	@Override
 	public String pop() throws MyStackException {
-		if( top == 0 ) {
-			throw new MyStackException( "stack is empty" );
+		--count;
+
+		if (count < 0) {
+			throw new MyStackException("비었다!");
 		}
-		
-		return buffer[--top];
+		return buffer[count];
+	}
+
+	public void resize(int length) {
+		String[] newBuffer = new String[length * 2];
+		for (int i = 0; i < buffer.length; i++) {
+			newBuffer[i] = buffer[i];
+		}
+		buffer = newBuffer;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return top == 0;
+		return count < 0;
 	}
 
 	@Override
 	public int size() {
-		return top;
+		return 0;
 	}
 }

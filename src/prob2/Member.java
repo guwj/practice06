@@ -4,7 +4,7 @@ public class Member {
 	private String id;
 	private String name;
 	
-	public Member( String id, String name ) {
+	public Member(String id, String name){
 		this.id = id;
 		this.name = name;
 	}
@@ -24,7 +24,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return id + ":" + name;
+		return id + ": " + name;
 	}
 	
 	
