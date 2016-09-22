@@ -11,7 +11,7 @@ public class MainApp {
 			stack.push("java");
 			stack.push(".");
 
-			while (!stack.isEmpty()) {
+			while (stack.isEmpty() == false) {
 				System.out.println(stack.pop());
 			}
 
